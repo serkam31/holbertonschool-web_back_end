@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-This module defines a function `sum_list` that takes a list of floats as an argument
-and returns their sum as a float.
+This module defines a function `sum_list` that takes a list of floats as
+an argument and returns their sum as a float.
 """
 from typing import List
 
