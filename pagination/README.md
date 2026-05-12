@@ -1,55 +1,31 @@
 # Pagination
 
-## Introduction
-La **pagination** consiste à diviser une grande liste de données en **pages**. Comme dans un livre : au lieu d'afficher 10 000 résultats d'un coup, on en affiche 20 par page.
+Dataset pagination in Python: simple index-based pagination, hypermedia pagination with metadata, and deletion-resilient cursor pagination.
 
-**Pourquoi on l'apprend ?** Pour des raisons de performance et d'expérience utilisateur. Charger 10 000 éléments d'un coup est trop lent.
+## Requirements
 
----
+- Python 3.9 — Ubuntu 20.04 LTS
+- pycodestyle 2.5
+- Dataset: `Popular_Baby_Names.csv`
 
-## Concepts clés
+## Tasks
 
-### Pagination simple
-```js
-function paginate(data, page, pageSize) {
-  const start = (page - 1) * pageSize;
-  const end = start + pageSize;
-  return data.slice(start, end);
-}
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-simple_helper_function.py` | `index_range` helper returning start/end tuple |
+| 1 | `1-simple_pagination.py` | `Server` class with basic `get_page` method |
+| 2 | `2-hypermedia_pagination.py` | `get_hyper` returning page data with navigation metadata |
+| 3 | `3-hypermedia_del_pagination.py` | `get_hyper_index` resilient to row deletions |
 
-const students = [/* 100 étudiants */];
-const page1 = paginate(students, 1, 10); // étudiants 1 à 10
-const page2 = paginate(students, 2, 10); // étudiants 11 à 20
+## Usage
+
+```bash
+python3 0-main.py
+python3 1-main.py
+python3 2-main.py
+python3 3-main.py
 ```
 
-### Hypermedia pagination — avec des métadonnées
-Renvoyer non seulement les données, mais aussi des infos sur la pagination :
-```json
-{
-  "page": 1,
-  "page_size": 10,
-  "total": 100,
-  "next_page": 2,
-  "prev_page": null,
-  "data": []
-}
-```
+## Author
 
-### Cursor-based pagination — pour les grandes bases de données
-Au lieu d'un numéro de page, on utilise un **curseur** (l'id du dernier élément vu) :
-```json
-{
-  "next_cursor": "abc123",
-  "data": []
-}
-```
-
----
-
-## Résumé
-
-| Type | Utilité |
-|---|---|
-| Simple | `page` + `page_size` |
-| Hypermedia | Ajoute des métadonnées (next, prev) |
-| Cursor-based | Plus performant pour les très grandes données |
+Holberton School — Web Back End

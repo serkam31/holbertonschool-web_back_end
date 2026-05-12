@@ -1,57 +1,42 @@
 # ES6 Data Manipulation
 
-## Introduction
-Ce projet porte sur la manipulation de données avec les outils modernes de JavaScript : `map`, `filter`, `reduce`, et les nouvelles structures `Set`, `Map`, et `WeakMap`.
+Array and data structure manipulation using modern JavaScript: `map`, `filter`, `reduce`, `Set`, `Map`, `WeakMap`, and typed arrays.
 
-**Pourquoi on l'apprend ?** Manipuler des listes de données est une tâche quotidienne en développement. Ces outils remplacent les boucles `for` classiques par du code plus lisible.
+## Requirements
 
----
+- Node.js 20.x — Ubuntu 20.04 LTS
+- ESLint with airbnb-base config
+- Tests via Jest (`npm run test`)
 
-## Concepts clés
+## Setup
 
-### `map` — transformer chaque élément
-```js
-const numbers = [1, 2, 3];
-const doubled = numbers.map(n => n * 2);
-// [2, 4, 6]
+```bash
+npm install
 ```
 
-### `filter` — garder seulement certains éléments
-```js
-const numbers = [1, 2, 3, 4, 5];
-const evens = numbers.filter(n => n % 2 === 0);
-// [2, 4]
+## Tasks
+
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-get_list_students.js` | Return an array of student objects |
+| 1 | `1-get_list_student_ids.js` | Extract ids with `map` |
+| 2 | `2-get_students_by_loc.js` | Filter students by city |
+| 3 | `3-get_ids_sum.js` | Sum all student ids with `reduce` |
+| 4 | `4-update_grade_by_city.js` | Filter and map to update grades |
+| 5 | `5-typed_arrays.js` | `ArrayBuffer` and `DataView` |
+| 6 | `6-set.js` | Create a `Set` from an array |
+| 7 | `7-has_array_values.js` | Check Set contains all array values |
+| 8 | `8-clean_set.js` | Filter and transform Set values |
+| 9 | `9-groceries_list.js` | Build a `Map` |
+| 10 | `10-update_uniq_items.js` | Update Map entries conditionally |
+
+## Scripts
+
+```bash
+npm run test          # run all tests
+npm run check-lint    # lint all numbered files
 ```
 
-### `reduce` — réduire un tableau à une seule valeur
-```js
-const numbers = [1, 2, 3, 4];
-const sum = numbers.reduce((total, n) => total + n, 0);
-// 10
-```
+## Author
 
-### `Set` — une liste sans doublons
-```js
-const set = new Set([1, 2, 2, 3, 3]);
-console.log(set); // Set {1, 2, 3}
-```
-
-### `Map` — comme un objet mais plus puissant
-```js
-const map = new Map();
-map.set("name", "Alice");
-map.set("age", 20);
-console.log(map.get("name")); // Alice
-```
-
----
-
-## Résumé
-
-| Méthode | Utilité |
-|---|---|
-| `map` | Transformer chaque élément |
-| `filter` | Filtrer selon une condition |
-| `reduce` | Calculer une valeur unique |
-| `Set` | Liste sans doublons |
-| `Map` | Clé-valeur flexible |
+Holberton School — Web Back End

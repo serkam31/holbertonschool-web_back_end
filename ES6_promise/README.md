@@ -1,64 +1,41 @@
 # ES6 Promise
 
-## Introduction
-Une **Promise** représente une valeur qui sera disponible **dans le futur**. C'est la solution JavaScript pour gérer les opérations asynchrones (appels API, lecture de fichiers, etc.).
+Asynchronous JavaScript using Promises: creation, chaining, error handling, and async/await syntax.
 
-**Analogie :** C'est comme commander un café. Le serveur te donne un ticket (la Promise). Tu ne l'as pas encore, mais tu sais qu'il arrivera (ou pas, si la machine est en panne).
+## Requirements
 
----
+- Node.js 20.x — Ubuntu 20.04 LTS
+- ESLint with airbnb-base config
+- Tests via Jest (`npm run test`)
 
-## Concepts clés
+## Setup
 
-### Créer une Promise
-```js
-const promise = new Promise((resolve, reject) => {
-  const success = true;
-
-  if (success) {
-    resolve("Café prêt !");
-  } else {
-    reject("Machine en panne !");
-  }
-});
+```bash
+npm install
 ```
 
-### `.then()` et `.catch()`
-```js
-promise
-  .then(result => console.log(result))   // "Café prêt !"
-  .catch(error => console.log(error));   // "Machine en panne !"
+## Tasks
+
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-promise.js` | Return a basic resolved Promise |
+| 1 | `1-promise.js` | Resolve or reject based on a boolean |
+| 2 | `2-then.js` | Attach `.then()` and `.catch()` handlers |
+| 3 | `3-all.js` | Run multiple Promises with `Promise.all` |
+| 4 | `4-user-promise.js` | `Promise.resolve()` shorthand |
+| 5 | `5-photo-reject.js` | `Promise.reject()` with custom error |
+| 6 | `6-final-user.js` | Handle mixed results with `Promise.allSettled` |
+| 7 | `7-load_balancer.js` | Return fastest Promise with `Promise.race` |
+| 8 | `8-try.js` | Throw an error on invalid input |
+| 9 | `9-try.js` | `try/catch/finally` guardrail pattern |
+
+## Scripts
+
+```bash
+npm run test          # run all tests
+npm run check-lint    # lint all numbered files
 ```
 
-### `async` / `await` — syntaxe plus lisible
-```js
-async function getCoffee() {
-  try {
-    const result = await promise;
-    console.log(result);
-  } catch (error) {
-    console.log(error);
-  }
-}
-```
+## Author
 
-### `Promise.all` — attendre plusieurs promesses
-```js
-const p1 = fetch('/api/users');
-const p2 = fetch('/api/posts');
-
-Promise.all([p1, p2]).then(([users, posts]) => {
-  console.log(users, posts);
-});
-```
-
----
-
-## Résumé
-
-| Concept | Utilité |
-|---|---|
-| `Promise` | Représente une valeur future |
-| `.then()` | Que faire si ça réussit |
-| `.catch()` | Que faire si ça échoue |
-| `async/await` | Syntaxe plus lisible pour les promesses |
-| `Promise.all` | Attendre plusieurs promesses en parallèle |
+Holberton School — Web Back End

@@ -1,64 +1,45 @@
 # Node JS Basic
 
-## Introduction
-**Node.js** permet d'exécuter du JavaScript **en dehors du navigateur**, directement sur ton ordinateur ou un serveur. Avant Node.js, JavaScript ne fonctionnait que dans les navigateurs.
+Server-side JavaScript with Node.js: modules, file I/O, HTTP servers, Express routing, and MVC architecture.
 
-**Pourquoi on l'apprend ?** Node.js est la base de tout le développement backend en JavaScript (APIs, serveurs web, etc.).
+## Requirements
 
----
+- Node.js 20.x — Ubuntu 20.04 LTS
+- ESLint with airbnb-base config
+- Tests via Mocha (`npm run test`)
 
-## Concepts clés
+## Setup
 
-### Exécuter un fichier JS
 ```bash
-node mon-fichier.js
+npm install
 ```
 
-### `console.log` — afficher dans le terminal
-```js
-console.log("Hello NodeJS!"); // affiche dans le terminal
+## Provided files
+
+- `database.csv` — student data used by tasks 2–8
+
+## Tasks
+
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-console.js` | Export a function that prints to stdout |
+| 1 | `1-stdin.js` | Read user input from stdin using `process` |
+| 2 | `2-read_file.js` | Read and parse a CSV synchronously |
+| 3 | `3-read_file_async.js` | Read and parse a CSV asynchronously with Promises |
+| 4 | `4-http.js` | Basic HTTP server responding to all routes |
+| 5 | `5-http.js` | HTTP server with route-based responses |
+| 6 | `6-http_express.js` | Basic Express server |
+| 7 | `7-http_express.js` | Express server with dynamic route |
+| 8 | `full_server/` | MVC architecture with Express, Router, and controllers |
+
+## Scripts
+
+```bash
+npm run test          # run all tests
+npm run check-lint    # lint all numbered files
+npm run dev           # start dev server with nodemon and babel-node
 ```
 
-### Les modules — `require` et `module.exports`
-```js
-// dans math.js
-function addition(a, b) {
-  return a + b;
-}
-module.exports = addition;
+## Author
 
-// dans main.js
-const addition = require('./math');
-console.log(addition(2, 3)); // 5
-```
-
-### Lire un fichier avec `fs`
-```js
-const fs = require('fs');
-const content = fs.readFileSync('fichier.txt', 'utf8');
-console.log(content);
-```
-
-### Créer un serveur HTTP
-```js
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  res.write("Hello World!");
-  res.end();
-});
-
-server.listen(3000);
-```
-
----
-
-## Résumé
-
-| Concept | Utilité |
-|---|---|
-| `node fichier.js` | Exécuter du JavaScript |
-| `require` | Importer un module |
-| `module.exports` | Exporter une fonction |
-| `fs` | Lire/écrire des fichiers |
-| `http` | Créer un serveur web |
+Holberton School — Web Back End

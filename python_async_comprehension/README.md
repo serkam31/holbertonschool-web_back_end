@@ -1,56 +1,28 @@
 # Python Async Comprehension
 
-## Introduction
-Les **async comprehensions** combinent deux concepts : les **compréhensions de liste** (une syntaxe Python pour créer des listes) et l'**asynchrone** (exécuter du code sans bloquer le programme).
+Asynchronous generators and async comprehensions in Python, with parallel execution measurement using `asyncio.gather`.
 
-**Pourquoi on l'apprend ?** Pour écrire du code asynchrone de façon concise et lisible.
+## Requirements
 
----
+- Python 3.9 — Ubuntu 20.04 LTS
+- pycodestyle 2.5
 
-## Concepts clés
+## Tasks
 
-### Rappel : compréhension de liste classique
-```python
-numbers = [1, 2, 3, 4, 5]
-squares = [n ** 2 for n in numbers]
-# [1, 4, 9, 16, 25]
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-async_generator.py` | Async generator yielding 10 random floats with 1s delay |
+| 1 | `1-async_comprehension.py` | Collect generator output with async comprehension |
+| 2 | `2-measure_runtime.py` | Measure runtime of 4 parallel comprehensions |
+
+## Usage
+
+```bash
+python3 0-main.py
+python3 1-main.py
+python3 2-main.py
 ```
 
-### Générateur asynchrone
-```python
-import asyncio
-import random
+## Author
 
-async def async_generator():
-    for i in range(10):
-        await asyncio.sleep(1)
-        yield random.uniform(0, 10)
-```
-
-### Async comprehension
-```python
-async def main():
-    results = [value async for value in async_generator()]
-    print(results)
-```
-
-### `asyncio.gather` — exécuter plusieurs coroutines en parallèle
-```python
-async def main():
-    results = await asyncio.gather(
-        coroutine1(),
-        coroutine2(),
-        coroutine3()
-    )
-```
-
----
-
-## Résumé
-
-| Concept | Utilité |
-|---|---|
-| Compréhension de liste | Créer une liste en une ligne |
-| `async for` | Itérer sur un générateur asynchrone |
-| `async` comprehension | Compréhension avec `async for` |
-| `asyncio.gather` | Lancer plusieurs tâches en parallèle |
+Holberton School — Web Back End

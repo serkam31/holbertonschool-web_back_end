@@ -1,48 +1,28 @@
-# Holberton School – Web Back-End
+# holbertonschool-web_back_end
 
-## Description
+Back-end development projects from Holberton School, covering JavaScript (ES6+, Node.js) and Python (async, type annotations, pagination, NoSQL).
 
-Ce dépôt regroupe l’ensemble des projets liés au développement **Back-End** réalisés dans le cadre de la formation Holberton School.
+## Projects
 
-Il couvre des concepts essentiels tels que Python avancé, la gestion des données, les API, ainsi que les bonnes pratiques de développement côté serveur.
+| Directory | Language | Topics |
+| --- | --- | --- |
+| `ES6_basic` | JavaScript | `const`/`let`, arrow functions, spread, template literals, destructuring |
+| `ES6_classes` | JavaScript | OOP, constructors, inheritance, getters/setters, static methods |
+| `ES6_data_manipulation` | JavaScript | `map`, `filter`, `reduce`, `Set`, `Map`, typed arrays |
+| `ES6_promise` | JavaScript | Promises, `.then`/`.catch`, `async`/`await`, `Promise.all` |
+| `Node_JS_basic` | JavaScript | Node.js, HTTP servers, Express, file I/O, MVC architecture |
+| `python_variable_annotations` | Python | Type annotations, `typing` module, `mypy` |
+| `python_async_function` | Python | `async`/`await`, `asyncio`, coroutines, tasks |
+| `python_async_comprehension` | Python | Async generators, async comprehensions, `asyncio.gather` |
+| `pagination` | Python | Simple, hypermedia, and deletion-resilient pagination |
+| `NoSQL` | Python / MongoDB | MongoDB shell, CRUD, PyMongo |
 
-## Objectifs
+## Requirements
 
-* Maîtriser le développement Back-End avec Python
-* Comprendre les interactions serveur / base de données
-* Concevoir des API robustes et scalables
-* Appliquer des standards professionnels de code
+- Node.js 20.x
+- Python 3.9
+- Ubuntu 20.04 LTS
 
-## Structure du projet
+## Author
 
-* `python_variable_annotations` – Introduction aux annotations de types en Python (typing)
-
-## Focus : python_variable_annotations
-
-### Description
-
-Ce module introduit les **annotations de types** en Python, permettant d'améliorer la lisibilité, la maintenabilité et la fiabilité du code.
-
-### Objectifs
-
-* Comprendre les annotations de variables et fonctions
-* Utiliser le module `typing`
-* Écrire un code typé et clair
-* Faciliter le debugging et la maintenance
-
-## Technologies
-
-* Python 3
-* Typing (PEP 484)
-
-## Exécution
-
-```bash
-python3 nom_du_fichier.py
-```
-
-## Bonnes pratiques
-
-* Code lisible et documenté
-* Respect des conventions PEP8
-* Utilisation cohérente des types
+Mateo — Holberton School Web Back End

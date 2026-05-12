@@ -1,55 +1,52 @@
 # NoSQL
 
-## Introduction
-**NoSQL** signifie "Not Only SQL". C'est une famille de bases de données qui ne stockent pas les données sous forme de tableaux comme SQL, mais sous d'autres formes (documents, clé-valeur, graphes, etc.).
+Introduction to MongoDB: shell commands, CRUD operations, and Python integration with PyMongo.
 
-**Pourquoi on l'apprend ?** Parce que des applications comme Instagram, Netflix ou MongoDB utilisent NoSQL pour sa flexibilité et ses performances.
+## Requirements
 
----
+- MongoDB 4.4 — Ubuntu 20.04 LTS
+- Python 3.9
+- PyMongo 4.x (`pip install pymongo`)
+- pycodestyle 2.5
 
-## Concepts clés
+## Setup
 
-### SQL vs NoSQL
+```bash
+# Install MongoDB
+sudo apt-get install -y mongodb
 
-| | SQL | NoSQL |
-|---|---|---|
-| Structure | Tableaux fixes | Flexible (JSON, etc.) |
-| Schéma | Obligatoire | Optionnel |
-| Exemple | MySQL, PostgreSQL | MongoDB, Redis |
-
-### MongoDB — la base NoSQL la plus populaire
-Les données sont stockées en **documents JSON** :
-```json
-{
-  "_id": "123",
-  "name": "Alice",
-  "age": 20,
-  "hobbies": ["code", "music"]
-}
+# Install PyMongo
+pip install pymongo
 ```
 
-### Les opérations de base (CRUD)
-```js
-// Créer
-db.students.insertOne({ name: "Alice", age: 20 });
+## Tasks
 
-// Lire
-db.students.find({ age: 20 });
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-list_databases` | List all databases |
+| 1 | `1-use_or_create_database` | Create or select a database |
+| 2 | `2-insert` | Insert a document into a collection |
+| 3 | `3-all` | List all documents in a collection |
+| 4 | `4-match` | Find documents matching a field |
+| 5 | `5-count` | Count documents in a collection |
+| 6 | `6-update` | Add a field to matching documents |
+| 7 | `7-delete` | Delete matching documents |
+| 8 | `8-all.py` | Python — list all documents |
+| 9 | `9-insert_school.py` | Python — insert a document, return `_id` |
+| 10 | `10-update_topics.py` | Python — update topics by school name |
+| 11 | `11-schools_by_topic.py` | Python — find schools by topic |
+| 12 | `12-log_stats.py` | Python — display Nginx log statistics |
 
-// Modifier
-db.students.updateOne({ name: "Alice" }, { $set: { age: 21 } });
+## Usage
 
-// Supprimer
-db.students.deleteOne({ name: "Alice" });
+```bash
+# Run a MongoDB script
+mongo < 0-list_databases
+
+# Run a Python script
+python3 12-log_stats.py
 ```
 
----
+## Author
 
-## Résumé
-
-| Concept | Utilité |
-|---|---|
-| NoSQL | Base de données flexible |
-| Document | Unité de stockage (comme un objet JSON) |
-| Collection | Groupe de documents (comme une table SQL) |
-| CRUD | Créer, Lire, Modifier, Supprimer |
+Holberton School — Web Back End

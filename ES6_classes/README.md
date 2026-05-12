@@ -1,84 +1,42 @@
 # ES6 Classes
 
-## Introduction
-Les classes permettent de créer des **modèles d'objets**. C'est comme un moule : tu définis une fois la forme, et tu peux créer autant d'objets que tu veux à partir de ce moule.
+Object-Oriented Programming in JavaScript using ES6 class syntax: constructors, getters/setters, inheritance, static methods, and meta-programming.
 
-**Pourquoi on l'apprend ?** La programmation orientée objet (POO) est un paradigme fondamental utilisé dans presque tous les langages.
+## Requirements
 
----
+- Node.js 20.x — Ubuntu 20.04 LTS
+- ESLint with airbnb-base config
+- Tests via Jest (`npm run test`)
 
-## Concepts clés
+## Setup
 
-### Créer une classe
-```js
-class Animal {
-  constructor(name, sound) {
-    this.name = name;
-    this.sound = sound;
-  }
-
-  speak() {
-    console.log(`${this.name} fait ${this.sound}`);
-  }
-}
-
-const cat = new Animal("Chat", "miaou");
-cat.speak(); // Chat fait miaou
+```bash
+npm install
 ```
 
----
+## Tasks
 
-### L'héritage — `extends`
-Une classe peut **hériter** d'une autre et réutiliser ses propriétés.
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-classroom.js` | Basic class with constructor |
+| 1 | `1-make_classrooms.js` | Instantiate multiple objects |
+| 2 | `2-hbtn_course.js` | Getters and setters with type validation |
+| 3 | `3-currency.js` | Instance method returning formatted string |
+| 4 | `4-pricing.js` | Class composition and static method |
+| 5 | `5-building.js` | Abstract class pattern with forced override |
+| 6 | `6-sky_high.js` | Inheritance with `extends` and `super` |
+| 7 | `7-airport.js` | Custom `toString()` method |
+| 8 | `8-hbtn_class.js` | Custom `valueOf()` and `toString()` |
+| 9 | `9-hoisting.js` | Class declaration order and hoisting |
+| 10 | `10-car.js` | Clone pattern using `this.constructor` |
 
-```js
-class Dog extends Animal {
-  constructor(name) {
-    super(name, "wouf"); // appelle le constructor du parent
-  }
+## Scripts
 
-  fetch() {
-    console.log(`${this.name} rapporte la balle !`);
-  }
-}
-
-const dog = new Dog("Rex");
-dog.speak();  // Rex fait wouf
-dog.fetch();  // Rex rapporte la balle !
+```bash
+npm run test          # run all tests
+npm run check-lint    # lint all numbered files
 ```
 
----
+## Author
 
-### Getters et Setters
-Contrôler l'accès aux propriétés d'une classe.
-
-```js
-class Student {
-  constructor(name) {
-    this._name = name;
-  }
-
-  get name() {
-    return this._name.toUpperCase();
-  }
-
-  set name(value) {
-    this._name = value;
-  }
-}
-
-const s = new Student("alice");
-console.log(s.name); // ALICE
-```
-
----
-
-## Résumé
-
-| Concept | Utilité |
-|---|---|
-| `class` | Créer un modèle d'objet |
-| `constructor` | Initialiser les propriétés |
-| `extends` | Hériter d'une autre classe |
-| `super` | Appeler le parent |
-| `get` / `set` | Contrôler l'accès aux propriétés |
+Holberton School — Web Back End

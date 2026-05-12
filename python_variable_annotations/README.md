@@ -1,56 +1,38 @@
 # Python Variable Annotations
 
-## Introduction
-Les **annotations de variables** permettent d'indiquer le **type** d'une variable en Python. Python reste flexible (pas d'erreur si tu mets le mauvais type), mais les annotations servent de **documentation** et permettent à des outils de détecter des erreurs.
+Type annotations in Python using built-in types and the `typing` module, with static type checking via `mypy`.
 
-**Pourquoi on l'apprend ?** Pour écrire du code plus lisible, maintenable, et détecter des bugs plus tôt.
+## Requirements
 
----
+- Python 3.9 — Ubuntu 20.04 LTS
+- pycodestyle 2.5
+- mypy (`pip install mypy`)
 
-## Concepts clés
+## Tasks
 
-### Annoter une variable
-```python
-name: str = "Alice"
-age: int = 20
-score: float = 9.5
-is_active: bool = True
-```
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-add.py` | Annotate a function that adds two floats |
+| 1 | `1-concat.py` | Annotate a string concatenation function |
+| 2 | `2-floor.py` | Annotate a floor function returning `int` |
+| 3 | `3-to_str.py` | Annotate a float-to-string conversion |
+| 4 | `4-define_variables.py` | Annotate module-level variables |
+| 5 | `5-sum_list.py` | Annotate a function using `List[float]` |
+| 6 | `6-sum_mixed_list.py` | Annotate with `Union[int, float]` |
+| 7 | `7-to_kv.py` | Annotate with `Tuple[str, float]` |
+| 8 | `8-make_multiplier.py` | Annotate a higher-order function with `Callable` |
+| 9 | `9-element_length.py` | Annotate with `Iterable`, `Sequence`, `List`, `Tuple` |
 
-### Annoter les paramètres et retours d'une fonction
-```python
-def greet(name: str) -> str:
-    return f"Bonjour {name}"
-```
+## Usage
 
-### Types complexes avec `typing`
-```python
-from typing import List, Dict, Tuple, Optional
-
-def get_students() -> List[str]:
-    return ["Alice", "Bob"]
-
-def get_info() -> Dict[str, int]:
-    return {"age": 20}
-
-def find_user(id: int) -> Optional[str]:
-    # peut retourner str ou None
-    return None
-```
-
-### `mypy` — vérifier les types
 ```bash
-pip install mypy
-mypy mon_fichier.py
+# Run a task
+python3 0-add.py
+
+# Type check with mypy
+mypy 0-add.py
 ```
 
----
+## Author
 
-## Résumé
-
-| Concept | Utilité |
-|---|---|
-| `variable: type` | Annoter une variable |
-| `def f(x: int) -> str` | Annoter une fonction |
-| `List`, `Dict`, `Optional` | Types complexes |
-| `mypy` | Vérifier les types statiquement |
+Holberton School — Web Back End

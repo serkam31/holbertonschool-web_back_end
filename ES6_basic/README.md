@@ -1,90 +1,44 @@
 # ES6 Basic
 
-## Introduction
-ES6 (aussi appelé ES2015) est une mise à jour majeure de JavaScript sortie en 2015. Avant ES6, JavaScript avait beaucoup de limitations qui rendaient le code difficile à lire et à maintenir. ES6 apporte une syntaxe plus moderne, plus claire et plus puissante.
+Modern JavaScript (ES2015+) fundamentals: variable declarations, arrow functions, destructuring, spread operator, and template literals.
 
-**Pourquoi on l'apprend ?** Parce que tout le JavaScript moderne (React, Node.js, etc.) utilise cette syntaxe. C'est la base indispensable.
+## Requirements
 
----
+- Node.js 20.x — Ubuntu 20.04 LTS
+- ESLint with airbnb-base config
+- Tests via Jest (`npm run test`)
 
-## Concepts clés
+## Setup
 
-### `const` et `let` — remplaçants de `var`
-Avant ES6, on utilisait `var` pour déclarer des variables. Le problème : `var` est capricieux et peut créer des bugs.
-
-```js
-// Avant ES6
-var age = 20;
-
-// Avec ES6
-const age = 20;  // valeur qui ne change jamais
-let score = 0;   // valeur qui peut changer
-score = 10;      // ✅ autorisé
-age = 21;        // ❌ erreur, const ne peut pas changer
+```bash
+npm install
 ```
 
----
+## Tasks
 
-### Les arrow functions — fonctions fléchées
-Une syntaxe plus courte pour écrire des fonctions.
+| # | File | Description |
+| --- | --- | --- |
+| 0 | `0-constants.js` | `const` and `let` declarations |
+| 1 | `1-block-scoped.js` | Block scoping with `const`/`let` inside conditionals |
+| 2 | `2-arrow.js` | Arrow functions and lexical `this` binding |
+| 3 | `3-default-parameter.js` | Default function parameters |
+| 4 | `4-rest-parameter.js` | Rest parameter `...args` |
+| 5 | `5-spread-operator.js` | Spread operator on arrays and strings |
+| 6 | `6-string-interpolation.js` | Template literals with `${}` |
+| 7 | `7-getBudgetObject.js` | Shorthand object properties |
+| 8 | `8-getBudgetCurrentYear.js` | Computed property names `[expr]` |
+| 9 | `9-getFullBudget.js` | Object spread and method shorthand |
+| 10 | `10-loops.js` | `for...of` loop |
+| 11 | `11-createEmployeesObject.js` | Dynamic object keys from parameters |
+| 12 | `12-createReportObject.js` | Object with methods, `Object.keys()` |
 
-```js
-// Fonction classique
-function addition(a, b) {
-  return a + b;
-}
+## Scripts
 
-// Arrow function
-const addition = (a, b) => a + b;
+```bash
+npm run test          # run all tests
+npm run check-lint    # lint all numbered files
 ```
 
----
+## Author
 
-### Template literals — les chaînes de caractères améliorées
-Plus besoin de concaténer avec `+`.
-
-```js
-const name = "Alice";
-
-// Avant
-console.log("Bonjour " + name + " !");
-
-// Avec ES6
-console.log(`Bonjour ${name} !`);
-```
-
----
-
-### Destructuring — décomposer un objet ou tableau
-```js
-const student = { name: "Alice", age: 20 };
-
-// Avant
-const name = student.name;
-const age = student.age;
-
-// Avec ES6
-const { name, age } = student;
-```
-
----
-
-### Spread operator `...`
-```js
-const arr1 = [1, 2, 3];
-const arr2 = [4, 5, 6];
-
-const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
-```
-
----
-
-## Résumé
-
-| Concept | Utilité |
-|---|---|
-| `const` / `let` | Remplace `var`, plus fiable |
-| Arrow functions | Syntaxe courte pour les fonctions |
-| Template literals | Chaînes de caractères dynamiques |
-| Destructuring | Extraire des valeurs facilement |
-| Spread `...` | Fusionner ou copier des tableaux/objets |
+Holberton School — Web Back End
