@@ -1,36 +1,60 @@
-# Python – Async Functions
+# Python Async Function
 
-## Description
+## Introduction
+La programmation **asynchrone** permet d'exécuter plusieurs tâches "en même temps" sans bloquer le programme. En Python, ça se fait avec `async` et `await`.
 
-Projet Python dédié à la programmation asynchrone avec `async` / `await`, permettant d’exécuter des tâches concurrentes de manière efficace.
+**Analogie :** Au restaurant, le serveur ne reste pas figé devant le four en attendant que ta pizza cuise. Il va prendre d'autres commandes pendant ce temps. C'est ça l'asynchrone.
 
-## Objectifs
-
-* Comprendre les fonctions asynchrones (`async def`)
-* Utiliser `await` pour gérer les opérations non bloquantes
-* Manipuler les coroutines et l’event loop
-* Améliorer les performances pour les tâches I/O
+---
 
 ## Concepts clés
 
-* Coroutines
-* Event Loop
-* `async` / `await`
-* Concurrence vs parallélisme
+### Fonction synchrone vs asynchrone
+```python
+import asyncio
 
-## Technologies
+# Synchrone — bloque tout pendant 3 secondes
+import time
+def wait():
+    time.sleep(3)
+    print("Terminé")
 
-* Python 3
-* asyncio
-
-## Exécution
-
-```bash
-python3 nom_du_fichier.py
+# Asynchrone — ne bloque pas
+async def wait():
+    await asyncio.sleep(3)
+    print("Terminé")
 ```
 
-## Bonnes pratiques
+### `async def` et `await`
+```python
+async def fetch_data():
+    await asyncio.sleep(1)  # simule une attente
+    return "données reçues"
 
-* Utiliser l’asynchrone pour les opérations I/O
-* Éviter les appels bloquants dans les coroutines
-* Structurer clairement les tâches asynchrones
+async def main():
+    result = await fetch_data()
+    print(result)
+
+asyncio.run(main())
+```
+
+### Lancer plusieurs tâches en parallèle
+```python
+async def main():
+    task1 = asyncio.create_task(fetch_data())
+    task2 = asyncio.create_task(fetch_data())
+
+    result1 = await task1
+    result2 = await task2
+```
+
+---
+
+## Résumé
+
+| Concept | Utilité |
+|---|---|
+| `async def` | Déclarer une fonction asynchrone |
+| `await` | Attendre le résultat sans bloquer |
+| `asyncio.run()` | Lancer le programme asynchrone |
+| `asyncio.create_task()` | Lancer une tâche en parallèle |

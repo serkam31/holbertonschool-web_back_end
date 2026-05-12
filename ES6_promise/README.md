@@ -1,37 +1,64 @@
-# JavaScript – ES6 Promises
+# ES6 Promise
 
-## Description
+## Introduction
+Une **Promise** représente une valeur qui sera disponible **dans le futur**. C'est la solution JavaScript pour gérer les opérations asynchrones (appels API, lecture de fichiers, etc.).
 
-Projet dédié à la gestion des opérations asynchrones en JavaScript avec les **Promises**, permettant de gérer les résultats différés de manière propre et lisible.
+**Analogie :** C'est comme commander un café. Le serveur te donne un ticket (la Promise). Tu ne l'as pas encore, mais tu sais qu'il arrivera (ou pas, si la machine est en panne).
 
-## Objectifs
-
-* Comprendre le fonctionnement des Promises
-* Utiliser `then`, `catch`, `finally`
-* Gérer les erreurs asynchrones
-* Chaîner des Promises
+---
 
 ## Concepts clés
 
-* Promise (`pending`, `fulfilled`, `rejected`)
-* `.then()` / `.catch()` / `.finally()`
-* Chaining
-* `Promise.all`, `Promise.race`
+### Créer une Promise
+```js
+const promise = new Promise((resolve, reject) => {
+  const success = true;
 
-## Technologies
-
-* JavaScript (ES6)
-* Node.js
-
-## Exécution
-
-```bash
-node nom_du_fichier.js
+  if (success) {
+    resolve("Café prêt !");
+  } else {
+    reject("Machine en panne !");
+  }
+});
 ```
 
-## Bonnes pratiques
+### `.then()` et `.catch()`
+```js
+promise
+  .then(result => console.log(result))   // "Café prêt !"
+  .catch(error => console.log(error));   // "Machine en panne !"
+```
 
-* Toujours gérer les erreurs (`catch`)
-* Éviter les callbacks imbriqués (callback hell)
-* Favoriser la lisibilité avec le chaining
-* Préparer la transition vers `async/await`
+### `async` / `await` — syntaxe plus lisible
+```js
+async function getCoffee() {
+  try {
+    const result = await promise;
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+```
+
+### `Promise.all` — attendre plusieurs promesses
+```js
+const p1 = fetch('/api/users');
+const p2 = fetch('/api/posts');
+
+Promise.all([p1, p2]).then(([users, posts]) => {
+  console.log(users, posts);
+});
+```
+
+---
+
+## Résumé
+
+| Concept | Utilité |
+|---|---|
+| `Promise` | Représente une valeur future |
+| `.then()` | Que faire si ça réussit |
+| `.catch()` | Que faire si ça échoue |
+| `async/await` | Syntaxe plus lisible pour les promesses |
+| `Promise.all` | Attendre plusieurs promesses en parallèle |

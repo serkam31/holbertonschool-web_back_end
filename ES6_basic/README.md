@@ -1,39 +1,90 @@
-# JavaScript – ES6 Basics
+# ES6 Basic
 
-## Description
+## Introduction
+ES6 (aussi appelé ES2015) est une mise à jour majeure de JavaScript sortie en 2015. Avant ES6, JavaScript avait beaucoup de limitations qui rendaient le code difficile à lire et à maintenir. ES6 apporte une syntaxe plus moderne, plus claire et plus puissante.
 
-Projet dédié aux fonctionnalités de base d’ES6 (ECMAScript 2015), introduisant une syntaxe moderne et des améliorations majeures du langage JavaScript.
+**Pourquoi on l'apprend ?** Parce que tout le JavaScript moderne (React, Node.js, etc.) utilise cette syntaxe. C'est la base indispensable.
 
-## Objectifs
-
-* Comprendre `let` et `const`
-* Utiliser les fonctions fléchées (arrow functions)
-* Manipuler les paramètres par défaut
-* Utiliser le destructuring
-* Comprendre les templates strings
+---
 
 ## Concepts clés
 
-* Scope (`var` vs `let`/`const`)
-* Arrow functions
-* Destructuring (arrays / objects)
-* Template literals
-* Spread / Rest operators
+### `const` et `let` — remplaçants de `var`
+Avant ES6, on utilisait `var` pour déclarer des variables. Le problème : `var` est capricieux et peut créer des bugs.
 
-## Technologies
+```js
+// Avant ES6
+var age = 20;
 
-* JavaScript (ES6)
-* Node.js
-
-## Exécution
-
-```bash
-node nom_du_fichier.js
+// Avec ES6
+const age = 20;  // valeur qui ne change jamais
+let score = 0;   // valeur qui peut changer
+score = 10;      // ✅ autorisé
+age = 21;        // ❌ erreur, const ne peut pas changer
 ```
 
-## Bonnes pratiques
+---
 
-* Privilégier `const` par défaut
-* Utiliser les arrow functions pour plus de lisibilité
-* Éviter `var`
-* Écrire un code moderne et maintenable
+### Les arrow functions — fonctions fléchées
+Une syntaxe plus courte pour écrire des fonctions.
+
+```js
+// Fonction classique
+function addition(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const addition = (a, b) => a + b;
+```
+
+---
+
+### Template literals — les chaînes de caractères améliorées
+Plus besoin de concaténer avec `+`.
+
+```js
+const name = "Alice";
+
+// Avant
+console.log("Bonjour " + name + " !");
+
+// Avec ES6
+console.log(`Bonjour ${name} !`);
+```
+
+---
+
+### Destructuring — décomposer un objet ou tableau
+```js
+const student = { name: "Alice", age: 20 };
+
+// Avant
+const name = student.name;
+const age = student.age;
+
+// Avec ES6
+const { name, age } = student;
+```
+
+---
+
+### Spread operator `...`
+```js
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+```
+
+---
+
+## Résumé
+
+| Concept | Utilité |
+|---|---|
+| `const` / `let` | Remplace `var`, plus fiable |
+| Arrow functions | Syntaxe courte pour les fonctions |
+| Template literals | Chaînes de caractères dynamiques |
+| Destructuring | Extraire des valeurs facilement |
+| Spread `...` | Fusionner ou copier des tableaux/objets |

@@ -1,36 +1,56 @@
-# Python – Variable Annotations
+# Python Variable Annotations
 
-## Description
+## Introduction
+Les **annotations de variables** permettent d'indiquer le **type** d'une variable en Python. Python reste flexible (pas d'erreur si tu mets le mauvais type), mais les annotations servent de **documentation** et permettent à des outils de détecter des erreurs.
 
-Projet Python dédié aux **annotations de types**, permettant de rendre le code plus lisible, maintenable et robuste.
+**Pourquoi on l'apprend ?** Pour écrire du code plus lisible, maintenable, et détecter des bugs plus tôt.
 
-## Objectifs
-
-* Comprendre les annotations de variables et fonctions
-* Utiliser le module `typing`
-* Améliorer la qualité du code avec des types explicites
-* Faciliter le debugging et la compréhension du code
+---
 
 ## Concepts clés
 
-* Type hints
-* `List`, `Tuple`, `Dict`
-* `Union`, `Optional`
-* Annotations de fonctions
-
-## Technologies
-
-* Python 3
-* Typing (PEP 484)
-
-## Exécution
-
-```bash
-python3 nom_du_fichier.py
+### Annoter une variable
+```python
+name: str = "Alice"
+age: int = 20
+score: float = 9.5
+is_active: bool = True
 ```
 
-## Bonnes pratiques
+### Annoter les paramètres et retours d'une fonction
+```python
+def greet(name: str) -> str:
+    return f"Bonjour {name}"
+```
 
-* Respect des conventions PEP8
-* Utilisation cohérente des annotations
-* Code clair et documenté
+### Types complexes avec `typing`
+```python
+from typing import List, Dict, Tuple, Optional
+
+def get_students() -> List[str]:
+    return ["Alice", "Bob"]
+
+def get_info() -> Dict[str, int]:
+    return {"age": 20}
+
+def find_user(id: int) -> Optional[str]:
+    # peut retourner str ou None
+    return None
+```
+
+### `mypy` — vérifier les types
+```bash
+pip install mypy
+mypy mon_fichier.py
+```
+
+---
+
+## Résumé
+
+| Concept | Utilité |
+|---|---|
+| `variable: type` | Annoter une variable |
+| `def f(x: int) -> str` | Annoter une fonction |
+| `List`, `Dict`, `Optional` | Types complexes |
+| `mypy` | Vérifier les types statiquement |

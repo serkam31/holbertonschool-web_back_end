@@ -1,39 +1,84 @@
-# JavaScript – ES6 Basics
+# ES6 Classes
 
-## Description
+## Introduction
+Les classes permettent de créer des **modèles d'objets**. C'est comme un moule : tu définis une fois la forme, et tu peux créer autant d'objets que tu veux à partir de ce moule.
 
-Projet dédié aux fonctionnalités de base d’ES6 (ECMAScript 2015), introduisant une syntaxe moderne et des améliorations majeures du langage JavaScript.
+**Pourquoi on l'apprend ?** La programmation orientée objet (POO) est un paradigme fondamental utilisé dans presque tous les langages.
 
-## Objectifs
-
-* Comprendre `let` et `const`
-* Utiliser les fonctions fléchées (arrow functions)
-* Manipuler les paramètres par défaut
-* Utiliser le destructuring
-* Comprendre les templates strings
+---
 
 ## Concepts clés
 
-* Scope (`var` vs `let`/`const`)
-* Arrow functions
-* Destructuring (arrays / objects)
-* Template literals
-* Spread / Rest operators
+### Créer une classe
+```js
+class Animal {
+  constructor(name, sound) {
+    this.name = name;
+    this.sound = sound;
+  }
 
-## Technologies
+  speak() {
+    console.log(`${this.name} fait ${this.sound}`);
+  }
+}
 
-* JavaScript (ES6)
-* Node.js
-
-## Exécution
-
-```bash
-node nom_du_fichier.js
+const cat = new Animal("Chat", "miaou");
+cat.speak(); // Chat fait miaou
 ```
 
-## Bonnes pratiques
+---
 
-* Privilégier `const` par défaut
-* Utiliser les arrow functions pour plus de lisibilité
-* Éviter `var`
-* Écrire un code moderne et maintenable
+### L'héritage — `extends`
+Une classe peut **hériter** d'une autre et réutiliser ses propriétés.
+
+```js
+class Dog extends Animal {
+  constructor(name) {
+    super(name, "wouf"); // appelle le constructor du parent
+  }
+
+  fetch() {
+    console.log(`${this.name} rapporte la balle !`);
+  }
+}
+
+const dog = new Dog("Rex");
+dog.speak();  // Rex fait wouf
+dog.fetch();  // Rex rapporte la balle !
+```
+
+---
+
+### Getters et Setters
+Contrôler l'accès aux propriétés d'une classe.
+
+```js
+class Student {
+  constructor(name) {
+    this._name = name;
+  }
+
+  get name() {
+    return this._name.toUpperCase();
+  }
+
+  set name(value) {
+    this._name = value;
+  }
+}
+
+const s = new Student("alice");
+console.log(s.name); // ALICE
+```
+
+---
+
+## Résumé
+
+| Concept | Utilité |
+|---|---|
+| `class` | Créer un modèle d'objet |
+| `constructor` | Initialiser les propriétés |
+| `extends` | Hériter d'une autre classe |
+| `super` | Appeler le parent |
+| `get` / `set` | Contrôler l'accès aux propriétés |
